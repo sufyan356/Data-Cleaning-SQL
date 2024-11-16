@@ -5,8 +5,7 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
 
 ## Dataset Description
 - **Name:** layoffs.csv
-- **Source:** (Add if applicable)
-
+  
 ## Columns:
   - **company:** Name of the company.
   - **location:** Geographic location.
@@ -17,3 +16,11 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
   - **stage:** Stage of the company (e.g., startup, growth).
   - **country:** Country of the company.
   - **funds_raised_millions:** Amount of funds raised in millions.
+
+## 1. Remove Duplicates
+- Created a duplicate table `(layoffs_duplicate)` to avoid modifying the original data.
+- Used the `ROW_NUMBER()` function to identify and remove duplicate records.
+- Created another table (layoffs_duplicate2) for managing duplicates.
+- Finalized the cleaned dataset by deleting duplicate rows.
+  
+## Key SQL Commands:
