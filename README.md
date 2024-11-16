@@ -4,8 +4,8 @@
 This project involves cleaning a dataset on company layoffs using SQL. The dataset contains various fields such as company name, location, industry, and layoff statistics. The goal is to prepare the data for analysis by removing duplicates, standardizing data, handling null values, and optimizing the schema.
 
 ## Dataset Description
-- Name: layoffs.csv
-- Source: (Add if applicable)
+- *Name: layoffs.csv
+- # Source: (Add if applicable)
 
 Columns:
 company: Name of the company.
