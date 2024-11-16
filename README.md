@@ -25,11 +25,12 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
   
 ## Key SQL Commands:
 
-`WITH RemoveDuplicate AS (
+WITH RemoveDuplicate AS (
     SELECT *, ROW_NUMBER() OVER (
         PARTITION BY company, location, industry, total_laid_off, percentage_laid_off, `date`, stage, country, funds_raised_millions
     ) AS ROW_NUM
     FROM layoffs_duplicate
 )
-SELECT * FROM RemoveDuplicate WHERE ROW_NUM > 1;`
+SELECT * FROM RemoveDuplicate WHERE ROW_NUM > 1;
+
 
