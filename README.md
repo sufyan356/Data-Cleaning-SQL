@@ -46,7 +46,7 @@ SELECT * FROM RemoveDuplicate WHERE ROW_NUM > 1;
 
 ## Key SQL Commands:
 
-`UPDATE layoffs_duplicate2
+UPDATE layoffs_duplicate2
 
 SET industry = "Crypto" WHERE industry LIKE "Crypto%";
 
@@ -54,7 +54,7 @@ UPDATE layoffs_duplicate2
 
 SET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
 
-ALTER TABLE layoffs_duplicate2 MODIFY COLUMN `date` DATE;`
+ALTER TABLE layoffs_duplicate2 MODIFY COLUMN `date` DATE;
 
 
 
