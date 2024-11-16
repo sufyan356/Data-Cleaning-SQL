@@ -7,7 +7,7 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
 - **Name:** layoffs.csv
 - **Source:** (Add if applicable)
 
-**Columns:**
+## Columns:
   - **company:** Name of the company.
   - **location:** Geographic location.
   - **industry:** Industry type.
