@@ -63,14 +63,42 @@ ALTER TABLE layoffs_duplicate2 MODIFY COLUMN `date` DATE;
 ## Key SQL Commands:
 
 UPDATE layoffs_duplicate2
+
 SET industry = NULL WHERE industry = '';
 
 UPDATE layoffs_duplicate2 t1
+
 JOIN layoffs_duplicate2 t2
+
 ON t1.company = t2.company AND t1.location = t2.location
+
 SET t1.industry = t2.industry
+
 WHERE t1.industry IS NULL AND t2.industry IS NOT NULL;
 
+## 4. Remove Irrelevant Columns
+- Removed unnecessary columns `(ROW_NUM)`.
+- Deleted rows where critical columns `(percentage_laid_off and total_laid_off)` were null.
+  
+## Key SQL Commands:
+
+ALTER TABLE layoffs_duplicate2 DROP COLUMN ROW_NUM;
+
+DELETE FROM layoffs_duplicate2
+
+WHERE percentage_laid_off IS NULL AND total_laid_off IS NULL;
+
+## Tools and Technologies
+- Database: MySQL
+- Language: SQL
+- Dataset Format: CSV
+
+## Outcomes
+- Duplicate records removed, resulting in unique entries.
+- Consistent and standardized text data across columns.
+- All dates converted to a proper SQL DATE format.
+- Missing values handled, improving data integrity.
+- Columns cleaned up for optimized schema design.
 
 
 
