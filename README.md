@@ -5,6 +5,7 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
 
 ## Dataset Description
 - **Name:** layoffs.csv
+- **data set:** https://github.com/sufyan356/Data-Cleaning-SQL/blob/main/layoffs.csv
   
 ## Columns:
   - **company:** Name of the company.
