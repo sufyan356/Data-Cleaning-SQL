@@ -26,6 +26,7 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
 ## Key SQL Commands:
 
 WITH RemoveDuplicate AS (
+
     SELECT *, ROW_NUMBER() OVER (
     
         PARTITION BY company, location, industry, total_laid_off, percentage_laid_off, `date`, stage, country, funds_raised_millions
@@ -35,6 +36,25 @@ WITH RemoveDuplicate AS (
     FROM layoffs_duplicate
     
 )
+
 SELECT * FROM RemoveDuplicate WHERE ROW_NUM > 1;
+
+## 2. Standardize the Data
+- Trimmed extra spaces from text fields such as company, location, and industry.
+- Unified naming conventions (e.g., "Crypto Currency" changed to "Crypto").
+- Converted text-based dates into SQL DATE format.
+
+## Key SQL Commands:
+
+UPDATE layoffs_duplicate2
+
+SET industry = "Crypto" WHERE industry LIKE "Crypto%";
+
+UPDATE layoffs_duplicate2
+
+SET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
+
+ALTER TABLE layoffs_duplicate2 MODIFY COLUMN `date` DATE;
+
 
 
