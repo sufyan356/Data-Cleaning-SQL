@@ -56,5 +56,21 @@ SET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
 
 ALTER TABLE layoffs_duplicate2 MODIFY COLUMN `date` DATE;
 
+## 3. Handle Null and Blank Values
+- Replaced blank strings with NULL.
+- Filled missing values in industry using data from matching records.
+  
+## Key SQL Commands:
+
+UPDATE layoffs_duplicate2
+SET industry = NULL WHERE industry = '';
+
+UPDATE layoffs_duplicate2 t1
+JOIN layoffs_duplicate2 t2
+ON t1.company = t2.company AND t1.location = t2.location
+SET t1.industry = t2.industry
+WHERE t1.industry IS NULL AND t2.industry IS NOT NULL;
+
+
 
 
