@@ -20,7 +20,16 @@ This project involves cleaning a dataset on company layoffs using SQL. The datas
 ## 1. Remove Duplicates
 - Created a duplicate table `(layoffs_duplicate)` to avoid modifying the original data.
 - Used the `ROW_NUMBER()` function to identify and remove duplicate records.
-- Created another table (layoffs_duplicate2) for managing duplicates.
+- Created another table `(layoffs_duplicate2)` for managing duplicates.
 - Finalized the cleaned dataset by deleting duplicate rows.
   
 ## Key SQL Commands:
+
+`WITH RemoveDuplicate AS (
+    SELECT *, ROW_NUMBER() OVER (
+        PARTITION BY company, location, industry, total_laid_off, percentage_laid_off, `date`, stage, country, funds_raised_millions
+    ) AS ROW_NUM
+    FROM layoffs_duplicate
+)
+SELECT * FROM RemoveDuplicate WHERE ROW_NUM > 1;`
+
